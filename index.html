@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ordo Domus Aeternae Forma</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0b0b0b;
+  color: #e8e6e3;
+  font-family: "Times New Roman", serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  max-width: 420px;
+  padding: 40px 20px;
+}
+
+.title {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.acronym {
+  margin-top: 8px;
+  font-size: 16px;
+  letter-spacing: 6px;
+  color: #cfcfcf;
+}
+
+.subtitle {
+  margin-top: 30px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #bfbfbf;
+}
+
+.triangle {
+  margin: 30px auto 0;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid #e8e6e3;
+  opacity: 0.8;
+}
+
+.links {
+  margin-top: 60px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.links div {
+  margin: 8px 0;
+  cursor: pointer;
+  color: #a8a8a8;
+}
+
+.links div:hover {
+  color: #ffffff;
+}
+
+.section {
+  margin-top: 40px;
+  font-size: 14px;
+  line-height: 1.6;
+  display: none;
+  color: #cfcfcf;
+}
+
+input {
+  width: 80%;
+  padding: 8px;
+  margin-top: 10px;
+  border: 1px solid #444;
+  background: transparent;
+  color: #e8e6e3;
+  font-family: inherit;
+}
+
+button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  border: 1px solid #e8e6e3;
+  background: none;
+  color: #e8e6e3;
+  font-family: inherit;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="title">
+    Ordo Domus Aeternae Forma
+  </div>
+
+  <div class="acronym">
+    O D A F
+  </div>
+
+  <div class="subtitle">
+    Foundation for the Advancement of Fine Arts<br>
+    through Formal Gatherings
+  </div>
+
+  <div class="triangle"></div>
+
+  <div class="links">
+    <div onclick="showSection('about')">About</div>
+    <div onclick="showSection('invite')">Request Invitation</div>
+  </div>
+
+  <div id="about" class="section">
+    <p>
+      The Foundation is dedicated to the advancement of the fine arts through small, formal gatherings.
+    </p>
+    <p>
+      Assemblies are conducted with an emphasis on study, discussion, and the preservation of artistic standards.
+    </p>
+    <p>
+      Attendance is limited and by invitation.
+    </p>
+  </div>
+
+</div>
+
+<script>
+function showSection(id) {
+  document.getElementById("about").style.display = "none";
+  document.getElementById("invite").style.display = "none";
+  document.getElementById(id).style.display = "block";
+}
+</script>
+
+</body>
+</html>
