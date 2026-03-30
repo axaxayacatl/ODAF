@@ -14,7 +14,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
 }
 
@@ -95,6 +95,71 @@ button {
   font-family: inherit;
   cursor: pointer;
 }
+
+button:hover {
+  background: #e8e6e3;
+  color: #0b0b0b;
+}
+
+.manifesto-visualizer {
+  margin: 30px auto;
+  width: 280px;
+  height: 180px;
+  position: relative;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  box-shadow: 0 0 20px rgba(255,255,255,0.05);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manifesto-visualizer:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 40px rgba(255,255,255,0.15);
+}
+
+.texture-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+}
+
+.manifesto-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #cfcfcf;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.manifesto-content button {
+  margin-top: 15px;
+  padding: 6px 14px;
+  border: 1px solid #cfcfcf;
+  background: none;
+  color: #cfcfcf;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.manifesto-content button:hover {
+  background: #cfcfcf;
+  color: #0b0b0b;
+}
 </style>
 </head>
 
@@ -120,6 +185,7 @@ button {
   <div class="links">
     <div onclick="showSection('about')">About</div>
     <div onclick="showSection('invite')">Request Invitation</div>
+    <div onclick="showSection('manifesto')">The Codex of Eternal Forms</div>
   </div>
 
   <div id="about" class="section">
@@ -134,12 +200,34 @@ button {
     </p>
   </div>
 
+  <div id="invite" class="section">
+    <p>
+      To request an invitation, please submit your email below.
+    </p>
+    <input type="email" placeholder="Email">
+    <button>Submit</button>
+  </div>
+
+  <div id="manifesto" class="section">
+    <p>
+      Acquire <strong>The Codex of Eternal Forms</strong>, a digital manifesto of ODAF philosophy and artistry.
+    </p>
+    <div class="manifesto-visualizer">
+      <div class="texture-layer"></div>
+      <div class="manifesto-content">
+        <p>PDF · 12 Pages · Exclusive</p>
+        <button onclick="window.location.href='codex.pdf'">Purchase</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
 function showSection(id) {
   document.getElementById("about").style.display = "none";
   document.getElementById("invite").style.display = "none";
+  document.getElementById("manifesto").style.display = "none";
   document.getElementById(id).style.display = "block";
 }
 </script>
