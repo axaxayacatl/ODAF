@@ -1,0 +1,30 @@
+name: Save Subscriber Email
+
+on:
+  repository_dispatch:
+    types: [subscribe_email]
+
+jobs:
+  save_email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Append email to CSV
+        env:
+          EMAIL: ${{ github.event.client_payload.email }}
+        run: |
+          FILE=emails.csv
+          if [ ! -f "$FILE" ]; then
+            echo "email" > $FILE
+          fi
+          echo "$EMAIL" >> $FILE
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add emails.csv
+          git commit -m "Add new subscriber email"
+          git push
