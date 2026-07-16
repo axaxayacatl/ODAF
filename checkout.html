@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODAF // Digital Acquisition</title>
+
+<style>
+body {
+  margin: 0;
+  background: #080808;
+  color: #e6e3dc;
+  font-family: "Times New Roman", serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 380px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.header {
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.acronym {
+  margin-top: 12px;
+  font-size: 13px;
+  letter-spacing: 8px;
+  color: #888;
+}
+
+.symbol {
+  margin: 35px auto;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #777;
+  transform: rotate(45deg);
+}
+
+.product {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 35px 0;
+}
+
+.product-title {
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.product-info {
+  margin-top: 20px;
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.price {
+  margin-top: 25px;
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+.wallet {
+  margin-top: 45px;
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+.address {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #333;
+  font-size: 12px;
+  color: #bbb;
+  word-break: break-all;
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  background: transparent;
+  border: 1px solid #e6e3dc;
+  color: #e6e3dc;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+button:hover {
+  background: #e6e3dc;
+  color: #080808;
+}
+
+.status {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #777;
+}
+
+.footer {
+  margin-top: 60px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #555;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+Ordo Domus Aeternae Forma
+</div>
+
+<div class="acronym">
+O D A F
+</div>
+
+<div class="symbol"></div>
+
+
+<div class="product">
+
+<div class="product-title">
+The Codex of Eternal Forms
+</div>
+
+<div class="product-info">
+Digital Manifesto<br>
+12 Pages<br>
+Permanent Archive Edition
+</div>
+
+<div class="price">
+0.00 ETH
+</div>
+
+</div>
+
+
+<div class="wallet">
+AUTHORIZED WALLET CONNECTION
+</div>
+
+<div class="address">
+0x0000000000000000000000000000000000000000
+</div>
+
+
+<button onclick="connectWallet()">
+CONNECT METAMASK
+</button>
+
+<div class="status" id="status">
+Wallet awaiting connection.
+</div>
+
+
+<div class="footer">
+ODAF ARCHIVE // BLOCKCHAIN EDITION
+</div>
+
+</div>
+
+
+<script>
+
+async function connectWallet() {
+
+if (typeof window.ethereum === "undefined") {
+document.getElementById("status").innerHTML =
+"METAMASK NOT DETECTED.";
+return;
+}
+
+try {
+
+const accounts = await window.ethereum.request({
+method: "eth_requestAccounts"
+});
+
+document.getElementById("status").innerHTML =
+"CONNECTED: " + accounts[0];
+
+}
+
+catch(error) {
+
+document.getElementById("status").innerHTML =
+"CONNECTION REFUSED.";
+
+}
+
+}
+
+</script>
+
+
+</body>
+</html>
